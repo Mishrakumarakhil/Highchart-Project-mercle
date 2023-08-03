@@ -67,7 +67,7 @@ const engagementHelper = {engagementMessageOverTimeChartOptions: function(messag
 			title: {
 				text: " ", 
 			},
-            
+
 			xAxis: {
 				type: "datetime",
 				tickInterval: 24 * 3600 * 1000,
@@ -112,15 +112,7 @@ const engagementHelper = {engagementMessageOverTimeChartOptions: function(messag
 				},
 			},
 			series: formatteddata,
-			plotOptions: {
-				series: {
-					marker: {
-						radius: 4,
-						enabled: true,
-						symbol: "circle",
-					},
-				},
-			},
+			
 			tooltip: {
 				// followPointer: true,
 				// followTouchMove: true,
@@ -139,8 +131,8 @@ const engagementHelper = {engagementMessageOverTimeChartOptions: function(messag
 					return `${this.series.name} <br/>${this.y} message on ${formattedDate}</b>`;
 				},
                 backgroundColor: "#0c0c0f",
-                borderColor:"#008f8d",
-                borderWidth:"2px",
+                // borderColor:"#008f8d",
+                borderWidth:2,
              
                 style: {
                     opacity:"0.8",
