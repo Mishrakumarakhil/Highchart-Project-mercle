@@ -62,7 +62,6 @@ export const messageCountList=[
     {
       "count": "1",
       "timeBucket": "2022-10-31T00:00:00.000Z",
-      "channelId": "1034434108241219645"
+      "channelId": "1037057875543076974"
     }
   ]
-

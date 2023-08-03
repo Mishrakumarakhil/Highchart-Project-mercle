@@ -81,7 +81,7 @@ export const channels=[
     },
     {
       "label": "csgo",
-      "value": "1034434108241219645",
+      "value": "825030110088396860",
       "type": 0,
       "guild": "825030075794587691",
       "guildId": "825030075794587691",
@@ -96,7 +96,7 @@ export const channels=[
   
       ],
       "nsfw": false,
-      "id": "1034434108241219645",
+      "id": "825030110088396860",
       "name": "csgo",
       "rawPosition": 1,
       "topic": "This is a good place to talk about csgo",
