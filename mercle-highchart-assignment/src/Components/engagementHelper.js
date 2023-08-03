@@ -118,12 +118,12 @@ const engagementHelper = {
 				},
 			},
 			tooltip: {
-				followPointer: true,
-				followTouchMove: true,
+				// followPointer: true,
+				// followTouchMove: true,
 				outside: true,
 				crosshairs: true,
 				useHTML: true,
-                shadow: false,
+                // shadow: false,
 				formatter: function() {
 					const unixTimestamp = this.x;
 					const date = new Date(unixTimestamp);
