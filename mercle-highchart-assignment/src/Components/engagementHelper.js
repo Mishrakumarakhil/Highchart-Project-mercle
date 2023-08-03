@@ -1,49 +1,7 @@
 import {messageCountList}from './Utils/MessageList';
 import {channels}from './Utils/Channels';
+import { findDuplicatesWithFullData, sereisDataFormation } from './helper';
 
-function findDuplicatesWithFullData(list) {
-	const duplicateIds = [];
-	const duplicateObjects = [];
-	const idsMap = new Map();
-	list.forEach((item) => {
-		const channelId = item.channelId;
-		if(idsMap.has(channelId)) {
-			if(!duplicateIds.includes(channelId)) {
-				duplicateIds.push(channelId);
-				duplicateObjects.push(idsMap.get(channelId));
-			}
-			duplicateObjects.push(item);
-		} else {
-			idsMap.set(channelId, item);
-		}
-	});
-	return duplicateObjects;
-}
-
-function sereisDataFormation(duplicates, channels) {
-	const dataByChannel = {};
-	const updatedData = duplicates.map(item => ({
-		x: new Date(item.timeBucket).getTime(),
-		y: +item.count,
-		channelId: item.channelId
-	}));
-	updatedData.forEach((item) => {
-		const channelId = item.channelId;
-		if(!dataByChannel[channelId]) {
-			dataByChannel[channelId] = [];
-		}
-		dataByChannel[channelId].push(item);
-	});
-	const result = Object.entries(dataByChannel).map(([channelId, data]) => {
-		const channelObj = channels.find((channel) => channel.id === channelId);
-		return {
-			name: channelObj ? channelObj.name : null,
-			color: "#008f8d",
-			data: data,
-		};
-	});
-	return result;
-}
 const engagementHelper = {engagementMessageOverTimeChartOptions: function(messageCountList, channels) {
 		const duplicates = findDuplicatesWithFullData(messageCountList); // Find Duplicates in message Count list
 		const formatteddata = sereisDataFormation(duplicates, channels) // formation may line chart series
@@ -62,15 +20,15 @@ const engagementHelper = {engagementMessageOverTimeChartOptions: function(messag
               },
             
 			credits: {
-				enabled: false, 
+				enabled: false, // hide highchart credit from bottom of chart
 			},
 			title: {
-				text: " ", 
+				text: " ",  
 			},
 
 			xAxis: {
 				type: "datetime",
-				tickInterval: 24 * 3600 * 1000,
+				tickInterval: 24 * 3600 * 1000, 
 				dateTimeLabelFormats: {
 					millisecond: "%l:%M %p",
 					second: "%l:%M %p",
@@ -155,7 +113,6 @@ const engagementHelper = {engagementMessageOverTimeChartOptions: function(messag
 				itemStyle: {
 					fontWeight: 500,
                     color:"white",
-
 				},
                 itemHoverStyle: {
                     color: 'white'
