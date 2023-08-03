@@ -44,11 +44,10 @@ function sereisDataFormation(duplicates, channels) {
 	});
 	return result;
 }
-const engagementHelper = {
-	engagementMessageOverTimeChartOptions: function(messageCountList, channels) {
-		const duplicates = findDuplicatesWithFullData(messageCountList);
-		const formatteddata = sereisDataFormation(duplicates, channels)
-		console.log("formatteddata", formatteddata)
+const engagementHelper = {engagementMessageOverTimeChartOptions: function(messageCountList, channels) {
+		const duplicates = findDuplicatesWithFullData(messageCountList); // Find Duplicates in message Count list
+		const formatteddata = sereisDataFormation(duplicates, channels) // formation may line chart series
+
 		const chartOptions = {
 			chart: {
 				type: "spline",
@@ -58,12 +57,17 @@ const engagementHelper = {
 					fontSize: 12,
 				},
 			},
+            accessibility: {
+                enabled: false
+              },
+            
 			credits: {
-				enabled: false,
+				enabled: false, 
 			},
 			title: {
-				text: " ",
+				text: " ", 
 			},
+            
 			xAxis: {
 				type: "datetime",
 				tickInterval: 24 * 3600 * 1000,
