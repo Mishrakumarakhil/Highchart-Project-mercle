@@ -38,7 +38,7 @@ function sereisDataFormation(duplicates, channels) {
 		const channelObj = channels.find((channel) => channel.id === channelId);
 		return {
 			name: channelObj ? channelObj.name : null,
-			color: "#1b474d",
+			color: "#008f8d",
 			data: data,
 		};
 	});
@@ -92,7 +92,7 @@ const engagementHelper = {
 			yAxis: {
 				gridLineWidth: 0,
 				gridLineDashStyle: "none",
-				gridLineColor: "#ccd6eb",
+				gridLineColor: "",
 				lineColor: "",
 				lineWidth: 0,
 				title: " ",
@@ -123,6 +123,7 @@ const engagementHelper = {
 				outside: true,
 				crosshairs: true,
 				useHTML: true,
+                shadow: false,
 				formatter: function() {
 					const unixTimestamp = this.x;
 					const date = new Date(unixTimestamp);
@@ -133,16 +134,39 @@ const engagementHelper = {
 					const formattedDate = date.toLocaleDateString('en-US', options);
 					return `${this.series.name} <br/>${this.y} message on ${formattedDate}</b>`;
 				},
-				backgroundColor: "#fff",
-				borderRadius: 6,
+                backgroundColor: "#0c0c0f",
+                borderColor:"#008f8d",
+                borderWidth:"2px",
+             
+                style: {
+                    opacity:"0.8",
+                    color: 'white',
+                    background:"transparent",
+                },
+				
 			},
+            plotOptions: {
+                series: {
+                    marker: {
+                            symbol: "circle",
+                      
+                        enabled: false, 
+                        color:"#008f8d",
+                    },
+                }
+            },
 			legend: {
 				itemStyle: {
 					fontWeight: 500,
-					fontFamily: "'Roboto', sans-serif",
-					textTransform: "normal",
+                    color:"white",
+
 				},
+                itemHoverStyle: {
+                    color: 'white'
+                },
+                backgroundColor:"#15161b",
 				alignColumns: false,
+                
 			}
 		}
 		return chartOptions
