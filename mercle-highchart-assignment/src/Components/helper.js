@@ -17,7 +17,6 @@ export const  findDuplicatesWithFullData=(list)=> {
 	return duplicateObjects;
 }
 
-
 export const sereisDataFormation=(duplicates, channels)=> {
 	const dataByChannel = {};
 	const updatedData = duplicates.map(item => ({
