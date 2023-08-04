@@ -1,3 +1,9 @@
+#Run this project by using below command :- 
+
+1. cd Highchart-Project-mercle
+2. npm start
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
